@@ -1,0 +1,74 @@
+---
+const projects = [
+  {
+    title: "XYZ",
+    description: "A full-stack application built with React and Node.js. Features real-time updates using WebSocket technology.",
+    tech: ["React", "Node.js", "WebSocket", "MongoDB"],
+    github: "https://github.com/yourusername/project-one",
+    live: "https://project-one.demo"
+  },
+  {
+    title: "Chat App",
+    description: "Real-time video chat application utilizing WebRTC and Socket.io for seamless communication.",
+    tech: ["WebRTC", "Socket.io", "Express", "React"],
+    github: "https://github.com/yourusername/project-two",
+    live: "https://project-two.demo"
+  },
+  {
+    title: "Ecommerce ",
+    description: "E-commerce platform with advanced filtering and search capabilities.",
+    tech: ["Next.js", "PostgreSQL", "Tailwind CSS", "Stripe"],
+    github: "https://github.com/yourusername/project-three",
+    live: "https://project-three.demo"
+  },
+  {
+    title: "Docker based  Four",
+    description: "Docker-based microservices architecture for scalable backend systems.",
+    tech: ["Docker", "Node.js", "MongoDB", "Redis"],
+    github: "https://github.com/yourusername/project-four",
+    live: "https://project-four.demo"
+  }
+];
+---
+
+<section id="projects" class="py-20 px-4 md:px-8 lg:px-16">
+  <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Featured Projects</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {projects.map((project, index) => (
+      <div 
+        class="group relative backdrop-blur-lg bg-white/10 p-6 rounded-lg border border-white/20 shadow-xl hover:bg-white/20 transition-all duration-300"
+        data-aos="fade-up"
+        data-aos-delay={index * 100}
+      >
+        <div class="absolute inset-0 rounded-lg bg-gradient-to-br from-white/5 to-white/0 pointer-events-none"></div>
+        <h3 class="text-xl font-semibold mb-3 text-[var(--accent)]">{project.title}</h3>
+        <p class="text-gray-300 mb-4">{project.description}</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {project.tech.map(tech => (
+            <span class="text-sm px-2 py-1 rounded-full bg-white/5 text-gray-300">
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div class="flex gap-4">
+          <a 
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-400 hover:text-[var(--accent)] transition-colors"
+          >
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a 
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-400 hover:text-[var(--accent)] transition-colors"
+          >
+            <i class="fas fa-external-link-alt text-xl"></i>
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
